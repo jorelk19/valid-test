@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/mobile_navigation"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/paymentFragment">
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.valid.edson.ui.views.fragments.PaymentFragment"
+        android:label="@string/payment_screen_title"
+        tools:layout="@layout/layout_payment_fragment" />
+    <fragment
+        android:id="@+id/myPaymentsFragment"
+        android:name="com.valid.edson.ui.views.fragments.MyPaymentsFragment"
+        android:label="@string/my_payments_screen_title"
+        tools:layout="@layout/layout_my_payments_fragment"
+        />
+</navigation>

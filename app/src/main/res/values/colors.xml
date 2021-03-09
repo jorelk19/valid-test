@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF5722</color>
+    <color name="colorPrimaryDark">#E64A19</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="colorPrimaryLight">#FFCCBC</color>
+
+    <color name="start_gradient_color">#48F0F1F6</color>
+    <color name="end_gradient_color">#F0F1F6</color>
+    <color name="colorPrimaryAlpha">#AAFF5722</color>
+    <color name='fontPlaceholder'>#ffc2c2c2</color>
+    <color name='fontDarkGray'>#ff231f20</color>
+
+    <color name="color_card">#F3FAF0</color>
+    <color name="font_card_color">#2F3147</color>
+    <color name="colorPrimaryLightBlur">#AAF0F1F6</color>
+
+</resources>

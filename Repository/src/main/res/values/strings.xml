@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_exists">El correo que intenta registrar ya existe</string>
+</resources>

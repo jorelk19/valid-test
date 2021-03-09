@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.valid.edson.ui.viewModels.SignInViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatoar_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/backgroundGray">
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="@dimen/dimen200"
+                        android:layout_height="@dimen/dimen150"
+                        android:layout_margin="@dimen/dimen10"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/dimen5"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_evertec_logo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Complex Email View-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayoutEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen10"
+                        android:layout_marginTop="@dimen/dimen10"
+                        android:layout_marginEnd="@dimen/dimen10"
+                        android:paddingStart="@dimen/dimen30"
+                        android:paddingTop="@dimen/dimen10"
+                        android:paddingEnd="@dimen/dimen30"
+                        android:paddingBottom="@dimen/dimen20"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView8">
+
+                        <ImageView
+                            android:id="@+id/ivName"
+                            android:layout_width="@dimen/dimen20"
+                            android:layout_height="@dimen/dimen20"
+                            android:layout_marginBottom="@dimen/dimen5"
+                            android:contentDescription="@null"
+                            android:src="@drawable/static_ic_email"
+                            app:layout_constraintBottom_toBottomOf="@+id/tInputEmail"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tvNameTitle" />
+
+                        <TextView
+                            android:id="@+id/tvNameTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen18"
+                            android:text="@string/login_email_title"
+                            android:textSize="@dimen/textSize12"
+                            app:layout_constraintBottom_toTopOf="@+id/tInputEmail"
+                            app:layout_constraintStart_toEndOf="@+id/ivName"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1"
+                            tools:ignore="SpUsage" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tInputEmail"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen15"
+                            android:layout_marginEnd="@dimen/dimen30"
+                            app:errorTextAppearance="@style/TextAppearanceErrorText"
+                            app:hintEnabled="false"
+                            app:errorContentDescription="@{viewModel.emailError}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivName">
+
+                            <EditText
+                                android:id="@+id/etUserName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/backgroundGray"
+                                android:hint="@string/login_email_placeholder"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="40"
+                                android:singleLine="true"
+                                android:text="@={viewModel.userName}"
+                                android:textColor="@color/fontDarkGray"
+                                android:textColorHint="@color/fontPlaceholder"
+                                android:textSize="@dimen/textSize12"
+                                tools:ignore="SpUsage" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Password -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen10"
+                        android:layout_marginEnd="@dimen/dimen10"
+                        android:paddingStart="@dimen/dimen30"
+                        android:paddingTop="@dimen/dimen5"
+                        android:paddingEnd="@dimen/dimen30"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEmail">
+
+                        <ImageView
+                            android:id="@+id/ivPassword"
+                            android:layout_width="@dimen/dimen20"
+                            android:layout_height="@dimen/dimen20"
+                            android:layout_marginBottom="@dimen/dimen20"
+                            android:contentDescription="@null"
+                            android:src="@drawable/static_ic_key"
+                            app:layout_constraintBottom_toBottomOf="@+id/tInputPassword"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tvPasswordTitle" />
+
+                        <TextView
+                            android:id="@+id/tvPasswordTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen18"
+                            android:text="@string/login_password_title"
+                            android:textSize="@dimen/textSize12"
+                            app:layout_constraintStart_toEndOf="@+id/ivPassword"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="SpUsage" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tInputPassword"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen15"
+                            android:layout_marginEnd="@dimen/dimen30"
+                            app:errorTextAppearance="@style/TextAppearanceErrorText"
+                            app:hintEnabled="false"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivPassword"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPasswordTitle">
+
+                            <EditText
+                                android:id="@+id/etPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/backgroundGray"
+                                android:hint="@string/login_password_placeholder"
+                                android:inputType="textPassword"
+                                android:maxLength="40"
+                                android:singleLine="true"
+                                android:text="@={viewModel.password}"
+                                android:textColor="@color/fontDarkGray"
+                                android:textColorHint="@color/fontPlaceholder"
+                                android:textSize="@dimen/textSize12"
+                                tools:ignore="RtlHardcoded,SpUsage" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/tvRecoveryPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen5"
+                            android:layout_marginTop="@dimen/dimen10"
+                            android:text="@string/login_forgot_password"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/textSize12"
+                            app:layout_constraintStart_toStartOf="@+id/tInputPassword"
+                            app:layout_constraintTop_toBottomOf="@+id/tInputPassword"
+                            tools:ignore="SpUsage" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- SignIn -->
+                    <Button
+                        android:id="@+id/btnLogIn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen30"
+                        android:layout_marginEnd="@dimen/dimen30"
+                        android:layout_marginBottom="@dimen/dimen10"
+                        android:background="@drawable/static_custom_background_enable_disable_button"
+                        android:enabled="@{viewModel.isButtonEnabled}"
+                        android:text="@string/login_sign_in"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textSize16"
+                        android:textStyle="bold"
+                        android:onClick="@{() -> viewModel.onSignInClick()}"
+                        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                        app:layout_constraintVertical_bias="1"
+                        tools:ignore="SpUsage" />
+
+                    <!--SignUp-->
+                    <Button
+                        android:id="@+id/btnRegister"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen20"
+                        android:text="@string/login_sign_up"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/textSize16"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="SpUsage" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

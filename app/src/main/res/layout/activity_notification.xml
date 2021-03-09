@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.valid.edson.ui.viewModels.NotificationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/dimen40"
+            android:layout_height="@dimen/dimen40"
+            android:layout_margin="@dimen/dimen50"
+            android:onClick="@{() -> viewModel.closeWindowClick()}"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/popup_container"
+            android:layout_width="@dimen/dimen280"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_white"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCheck"
+                android:layout_width="@dimen/dimen50"
+                android:layout_height="@dimen/dimen50"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen10"
+                android:background="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvInternalReferenceTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:layout_marginBottom="@dimen/dimen10"
+                android:background="@android:color/white"
+                android:text="@string/internal_reference"
+                android:textColor="@color/fontDarkGray" />
+
+            <TextView
+                android:id="@+id/tvInternalReference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:layout_marginBottom="@dimen/dimen10"
+                android:background="@android:color/white"
+                android:text="@{viewModel.internalReference}"
+                android:textColor="@color/fontDarkGray" />
+
+            <TextView
+                android:id="@+id/tvStateTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:layout_marginBottom="@dimen/dimen10"
+                android:background="@android:color/white"
+                android:text="@string/transaction_state"
+                android:textColor="@color/fontDarkGray" />
+
+            <TextView
+                android:id="@+id/tvState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:layout_marginBottom="@dimen/dimen10"
+                android:background="@android:color/white"
+                android:text="@{viewModel.transactionState}"
+                android:textColor="@color/fontDarkGray" />
+
+            <TextView
+                android:id="@+id/tvTotalAmountTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:layout_marginBottom="@dimen/dimen10"
+                android:background="@android:color/white"
+                android:text="@string/total_amount"
+                android:textColor="@color/fontDarkGray" />
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen20"
+                android:layout_marginTop="@dimen/dimen10"
+                android:layout_marginEnd="@dimen/dimen20"
+                android:layout_marginBottom="@dimen/dimen20"
+                android:background="@android:color/white"
+                android:text="@{viewModel.totalAmount}"
+                android:textColor="@color/fontDarkGray" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
