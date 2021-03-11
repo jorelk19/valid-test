@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_country"
+        android:enabled="true"
+        android:icon="@drawable/ic_location"
+        android:title="@string/tabBar_countries"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_track"
+        android:enabled="true"
+        android:icon="@drawable/ic_payments"
+        android:title="@string/tabBar_track"
+        app:showAsAction="ifRoom" />
+</menu>

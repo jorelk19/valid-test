@@ -61,7 +61,7 @@ class HeaderControl : BaseControl {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         layoutHeaderControlBinding = DataBindingUtil.inflate(inflater, R.layout.layout_header_control, this, true)
         layoutHeaderControlBinding.headerViewModel = viewModel
-        viewModel.setHeaderValues(headerTitle = title, isBackVisibility = isBackVisibility)
+        viewModel.setHeaderValues(title, isBackVisibility)
         layoutHeaderControlBinding.ivHeaderBack.setColorFilter(android.R.color.white)
     }
 }

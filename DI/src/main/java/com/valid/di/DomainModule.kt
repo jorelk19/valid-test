@@ -1,13 +1,9 @@
 package com.valid.di
 
-import com.valid.domain.MyPaymentsDomain
-import com.valid.domain.PaymentDomain
-import com.valid.domain.SignInDomain
 import com.valid.domain.SplashScreenDomain
-import com.valid.repository.implementation.DefaultUserLocalRepository
-import com.valid.repository.implementation.PaymentLocalRepository
-import com.valid.repository.implementation.PaymentRepository
-import com.valid.repository.implementation.SignInRepository
+import com.valid.domain.TrackDomain
+import com.valid.repository.implementation.DefaultCountryLocalRepository
+import com.valid.repository.remote.RemoteRepository
 import org.koin.dsl.module
 
 /**
@@ -16,14 +12,11 @@ import org.koin.dsl.module
  * @since 1.0.0
  * */
 val domainModule = module {
-    single { provideSignInDomain(get()) }
     single { provideSplashScreenDomain(get()) }
-    single { providePaymentDomain(get(), get()) }
-    single { provideMyPaymentsDomain(get(), get()) }
+    single { provideTrackDomain(get()) }
 }
 
-private fun provideSignInDomain(signInRepository: SignInRepository) = SignInDomain(signInRepository)
-private fun provideSplashScreenDomain(defaultUserLocalRepository: DefaultUserLocalRepository) = SplashScreenDomain(defaultUserLocalRepository)
-private fun providePaymentDomain(paymentRepository: PaymentRepository, paymentLocalRepository : PaymentLocalRepository) = PaymentDomain(paymentRepository, paymentLocalRepository)
-private fun provideMyPaymentsDomain(paymentRepository: PaymentRepository, paymentLocalRepository : PaymentLocalRepository) = MyPaymentsDomain(paymentRepository, paymentLocalRepository)
+private fun provideSplashScreenDomain(defaultCountryLocalRepository: DefaultCountryLocalRepository) = SplashScreenDomain(defaultCountryLocalRepository)
+private fun provideTrackDomain(remoteRepository: RemoteRepository) = TrackDomain(remoteRepository)
+
 

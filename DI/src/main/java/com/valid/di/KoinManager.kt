@@ -24,7 +24,7 @@ class KoinManager {
         }
 
         fun getAppComponent() : AppComponent {
-            val appComponent by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { PaymentComponent().appComponent }
+            val appComponent by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { RadioComponent().appComponent }
             return appComponent
         }
 

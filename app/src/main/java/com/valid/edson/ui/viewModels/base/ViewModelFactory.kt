@@ -20,11 +20,9 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         with(modelClass)
         {
             when {
-                isAssignableFrom(SignInViewModel::class.java) -> SignInViewModel(KoinManager.getAppComponent().signInDomain)
                 isAssignableFrom(SplashScreenViewModel::class.java) -> SplashScreenViewModel(KoinManager.getAppComponent().splashScreenDomain)
-                isAssignableFrom(PaymentViewModel::class.java) -> PaymentViewModel(KoinManager.getAppComponent().paymentDomain)
-                isAssignableFrom(MyPaymentsViewModel::class.java) -> MyPaymentsViewModel(KoinManager.getAppComponent().myPaymentsDomain)
-                isAssignableFrom(NotificationViewModel::class.java) -> NotificationViewModel()
+                isAssignableFrom(CountryViewModel::class.java) -> CountryViewModel()
+                isAssignableFrom(TrackViewModel::class.java) -> TrackViewModel(KoinManager.getAppComponent().trackDomain)
                 else -> throw IllegalStateException("Unknown ViewModel class: ${modelClass.name}")
             }
         } as T

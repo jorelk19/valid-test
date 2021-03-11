@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/mobile_navigation"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/paymentFragment">
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/mobile_navigation"
+    app:startDestination="@id/countryFragment">
 
     <fragment
-        android:id="@+id/paymentFragment"
-        android:name="com.valid.edson.ui.views.fragments.PaymentFragment"
-        android:label="@string/payment_screen_title"
-        tools:layout="@layout/layout_payment_fragment" />
+        android:id="@+id/countryFragment"
+        android:name="com.valid.edson.ui.views.fragments.CountryFragment"
+        android:label="CountryFragment" >
+        <action
+            android:id="@+id/action_nav_main_to_nav_dashboard"
+            app:destination="@id/trackFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/myPaymentsFragment"
+        android:id="@+id/trackFragment"
+        android:name="com.valid.edson.ui.views.fragments.TrackFragment"
+        android:label="TrackFragment" />
+    <fragment
+        android:id="@+id/myPaymentsFragment2"
         android:name="com.valid.edson.ui.views.fragments.MyPaymentsFragment"
-        android:label="@string/my_payments_screen_title"
-        tools:layout="@layout/layout_my_payments_fragment"
-        />
+        android:label="MyPaymentsFragment" />
 </navigation>

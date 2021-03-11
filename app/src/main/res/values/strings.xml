@@ -25,26 +25,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="generate_payment">Generar Pago</string>
-    <string name="view_payment">Visualizar Pagos</string>
-    <string name="title_activity_main2">MainActivity</string>
-    <string name="title_activity_main21">Main2Activity1</string>
-    <string name="payment_screen_title">Realizar pago</string>
-    <string name="my_payments_screen_title">Pagos realizados</string>
-    <string name="card_title">Ingrese los datos de su tarjeta</string>
-    <string name="card_cvv_description">CVV</string>
-    <string name="points">●●●● ●●●● ●●●● ●●●●</string>
+    <string name="select_country">Seleccionar país</string>
     <string name='cards_full_name'>Nombre y apellido</string>
-    <string name="number_card">Número de tarjeta</string>
-    <string name='card_date'>MM/AA</string>
-    <string name="digits_enable_editText">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "</string>
-    <string name="card_currency_sign">$ 0</string>
-    <string name="card_payment_button">Realizar pago</string>
-    <string name="total_payment">Total a pagar</string>
-    <string name="internal_reference">Referencia interna</string>
-    <string name="transaction_state">Estado de la transacción</string>
-    <string name="total_amount">Total pagado</string>
+    <string name="tabBar_countries">País</string>
+    <string name="tabBar_track">Pistas</string>
+    <string name="track_screen_title">Busqueda de canciones</string>
+    <string name="artist_name">Nombre del artista</string>
+    <string name="artist_Listeners">Oyentes</string>
 </resources>

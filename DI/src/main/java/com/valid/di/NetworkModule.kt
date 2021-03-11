@@ -1,6 +1,8 @@
 package com.valid.di
 
-import com.valid.businessmodels.api.PaymentApi
+import android.content.Context
+import com.valid.businessmodels.api.RadioApi
+import com.valid.di.connectivity.NetworkInterceptor
 import okhttp3.OkHttpClient
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -16,7 +18,7 @@ import java.util.concurrent.TimeUnit
  **/
 
 const val okHttpClientWithoutInterceptor = "defaultOkHttpClient"
-const val retrofitPayment = "retrofitPayment"
+const val retrofitRadio = "retrofitRadio"
 private const val DEFAULT_TIME_OUT = 60L
 
 
@@ -26,10 +28,22 @@ private const val DEFAULT_TIME_OUT = 60L
 val networkModule = module {
 
     // Retrofit and OkHttpClient instances
-    single(named(okHttpClientWithoutInterceptor)) { provideDefaultOkHttpClient() }
-    single(named(retrofitPayment)) { provideRetrofitPaymentClient(get(named(okHttpClientWithoutInterceptor))) }
+    single(named(okHttpClientWithoutInterceptor)) { provideOkHttpClientWithInterceptor() }
+    single(named(retrofitRadio)) { provideRetrofitPaymentClient(get(named(okHttpClientWithoutInterceptor))) }
     // API
-    single { providePaymentApi(get(named(retrofitPayment))) }
+    single { providePaymentApi(get(named(retrofitRadio))) }
+}
+
+/**
+ * OkHttpClient with Interceptor
+ */
+private fun provideOkHttpClientWithInterceptor(): OkHttpClient {
+    return OkHttpClient.Builder()
+        .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+        .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+        .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+        .addInterceptor(NetworkInterceptor())
+        .build()
 }
 
 
@@ -49,7 +63,7 @@ private fun provideDefaultOkHttpClient(): OkHttpClient {
  */
 private fun provideRetrofitPaymentClient(client: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(BuildConfig.PAYMENT_API)
+        .baseUrl(BuildConfig.RADIO_API)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -59,5 +73,5 @@ private fun provideRetrofitPaymentClient(client: OkHttpClient): Retrofit {
 /**
  * Movie api provider
  * */
-private fun providePaymentApi(retrofit: Retrofit): PaymentApi = retrofit.create(PaymentApi::class.java)
+private fun providePaymentApi(retrofit: Retrofit): RadioApi = retrofit.create(RadioApi::class.java)
 

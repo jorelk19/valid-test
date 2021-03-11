@@ -1,10 +1,8 @@
 package com.valid.di
 
-import com.valid.businessmodels.api.PaymentApi
-import com.valid.repository.implementation.DefaultUserLocalRepository
-import com.valid.repository.implementation.PaymentLocalRepository
-import com.valid.repository.implementation.PaymentRepository
-import com.valid.repository.implementation.SignInRepository
+import com.valid.businessmodels.api.RadioApi
+import com.valid.repository.implementation.DefaultCountryLocalRepository
+import com.valid.repository.remote.RemoteRepository
 import org.koin.dsl.module
 
 /**
@@ -13,16 +11,13 @@ import org.koin.dsl.module
  * @since 1.0.0
  * */
 
-private fun provideSignInRepository() = SignInRepository()
-private fun providePaymentRepository(paymentApi: PaymentApi) = PaymentRepository(paymentApi)
-private fun providePaymentLocalRepository() = PaymentLocalRepository()
-private fun provideDefaultUserRepository() = DefaultUserLocalRepository()
+
+private fun provideDefaultCountryRepository() = DefaultCountryLocalRepository()
+private fun provideRemoteRepository(radioApi: RadioApi) = RemoteRepository(radioApi)
 
 val repositoryModule = module {
-    single { provideSignInRepository() }
-    single { provideDefaultUserRepository() }
-    single { providePaymentRepository(get()) }
-    single { providePaymentLocalRepository() }
+    single { provideDefaultCountryRepository() }
+    single { provideRemoteRepository(get()) }
 }
 
 

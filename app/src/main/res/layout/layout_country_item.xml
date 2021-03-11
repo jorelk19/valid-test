@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/siteContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen80"
+        android:layout_margin="@dimen/dimen5"
+        android:background="@drawable/background_gradient">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvContainer"
+            android:layout_width="@dimen/dimen50"
+            android:layout_height="@dimen/dimen50"
+            android:layout_margin="@dimen/dimen10"
+            app:cardCornerRadius="@dimen/dimen20"
+            app:cardElevation="@dimen/dimen5"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCountryFlag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvCountryName"
+            android:layout_width="@dimen/dimen200"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen5"
+            android:layout_marginStart="@dimen/dimen30"
+            android:lines="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvContainer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -26,7 +26,7 @@ abstract class BaseViewModel : ViewModel(), IErrorManager {
     override fun onServiceErrorHttpException(error: String?, httpException: HttpException) {
         ViewManager.getInstance.hideLoader()
         SnackFactory.showErrorMessage(httpException = httpException,
-            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatoar_login,
+            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatorSplashScreen,
             fragmentActivity = ViewManager.getInstance.getCurrentActivity(),
             currentContext = App.getAppContext()
         )
@@ -38,7 +38,7 @@ abstract class BaseViewModel : ViewModel(), IErrorManager {
     override fun onSocketTimeoutException(error: String?) {
         ViewManager.getInstance.hideLoader()
         SnackFactory.showWarningMessage(fragmentActivity = ViewManager.getInstance.getCurrentActivity(),
-            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatoar_login,
+            resource = R.id.coordinator_main_activity,
             message = error?.let { it } ?: run { ViewManager.getInstance.getString(R.string.something_went_wrong_retry) },
             currentContext = App.getAppContext()
         )
@@ -50,7 +50,7 @@ abstract class BaseViewModel : ViewModel(), IErrorManager {
     override fun onIOException(error: String?) {
         ViewManager.getInstance.hideLoader()
         SnackFactory.showWarningMessage(fragmentActivity = ViewManager.getInstance.getCurrentActivity(),
-            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatoar_login,
+            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatorSplashScreen,
             message = error?.let { it } ?: run { ViewManager.getInstance.getString(R.string.something_went_wrong_retry) },
             currentContext = App.getAppContext()
         )
@@ -76,7 +76,7 @@ abstract class BaseViewModel : ViewModel(), IErrorManager {
     override fun onGeneralException(exception: Exception) {
         ViewManager.getInstance.hideLoader()
         SnackFactory.showWarningMessage(fragmentActivity = ViewManager.getInstance.getCurrentActivity(),
-            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatoar_login,
+            resource = if(ViewManager.getInstance.getCurrentActivity()::class.java == MainActivity::class.java)  R.id.coordinator_main_activity else R.id.coordinatorSplashScreen,
             message = exception.message?.let { it } ?: run { ViewManager.getInstance.getString(R.string.something_went_wrong_retry) },
             currentContext = App.getAppContext()
         )

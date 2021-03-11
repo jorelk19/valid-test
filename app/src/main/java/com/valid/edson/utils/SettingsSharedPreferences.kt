@@ -2,13 +2,13 @@ package com.valid.edson.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.valid.businessmodels.business.User
+import com.valid.businessmodels.business.Country
 import com.valid.di.app.App
 import com.valid.utils.fromJson
 import com.valid.utils.json
 
 const val PREFERENCES_FILE_KEY = "com.mercadolibre.preferences"
-const val CURRENT_USER = "CURRENT_USER"
+const val CURRENT_COUNTRY = "CURRENT_COUNTRY"
 
 /**
  * Class use to store setting shared preferences
@@ -27,13 +27,12 @@ class SettingsSharedPreferences(appContext: Context) {
     private fun setInt(key: String, value: Int) = this.sharedPreferences.edit().putInt(key, value).commit()
     private fun setString(key: String, value: String) = this.sharedPreferences.edit().putString(key, value).commit()
     private fun setBoolean(key: String, value: Boolean) = this.sharedPreferences.edit().putBoolean(key, value).commit()
-
-    fun setCurrentUser(user: User) {
-        setString(CURRENT_USER, user.json())
+    fun setCountry(country: Country) {
+        setString(CURRENT_COUNTRY, country.json())
     }
 
-    fun getCurrentUser(): User {
-        return string(CURRENT_USER).fromJson()
+    fun getCountry() : Country {
+        return string(CURRENT_COUNTRY).fromJson()
     }
 }
 

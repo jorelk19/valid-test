@@ -18,7 +18,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
-        buildConfigField("String", "PAYMENT_API", '"https://dev.placetopay.com"')
+        buildConfigField("String", "RADIO_API", '"http://ws.audioscrobbler.com"')
+        buildConfigField("String", "APY_KEY", '"829751643419a7128b7ada50de590067"')
+        buildConfigField("String", "FORMAT", '"json"')
     }
 
     buildTypes {

@@ -1,5 +1,7 @@
 package com.valid.businessmodels.result
 
+import com.valid.businessmodels.business.Country
+
 interface  ISplashScreenResult {
-    fun saveDefaultUser()
+    fun getDefaultCountries(countries : ArrayList<Country>)
 }

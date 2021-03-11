@@ -14,5 +14,6 @@
     <color name="color_card">#F3FAF0</color>
     <color name="font_card_color">#2F3147</color>
     <color name="colorPrimaryLightBlur">#AAF0F1F6</color>
+    <color name="colorBlue">#3F51B5</color>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.valid.edson.ui.viewModels
 
+import androidx.lifecycle.MutableLiveData
 import com.valid.edson.ui.models.HeaderModel
 import com.valid.edson.ui.viewModels.base.BaseViewModel
 import com.valid.utils.ViewManager
@@ -10,7 +11,9 @@ import com.valid.utils.ViewManager
  * @since 1.0.0
  * */
 class HeaderViewModel : BaseViewModel() {
-    var headerModel = HeaderModel()
+
+    val headerTitle = MutableLiveData<String>()
+    val isBackVisibility = MutableLiveData<Boolean>()
 
     /**
      * Function to execute back in header button
@@ -22,8 +25,8 @@ class HeaderViewModel : BaseViewModel() {
     /**
      * Method to set the values in header
      * */
-    fun setHeaderValues(headerTitle: String, isBackVisibility: Boolean) {
-        headerModel.headerTitle = headerTitle
-        headerModel.isBackVisibility = isBackVisibility
+    fun setHeaderValues(title: String, backVisibility: Boolean) {
+        headerTitle.value = title
+        isBackVisibility.value = backVisibility
     }
 }

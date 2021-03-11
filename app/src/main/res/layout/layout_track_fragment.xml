@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.valid.edson.ui.viewModels.TrackViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <com.valid.edson.ui.views.widgets.HeaderControl
+            android:id="@+id/headerControl"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:headerWindowTitle="@string/track_screen_title"
+            app:headerBackVisibility="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/searchContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerControl">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="@dimen/dimen0"
+                android:layout_height="@dimen/dimen50"
+                android:layout_margin="@dimen/dimen10"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_search"
+                android:padding="@dimen/dimen5"
+                android:text="@={viewModel.searchedText}"
+                app:layout_constraintEnd_toStartOf="@+id/ivSearch"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="@dimen/dimen30"
+                android:layout_height="@dimen/dimen30"
+                android:layout_margin="@dimen/dimen10"
+                android:src="@drawable/ic_arrow_forward"
+                android:onClick="@{ () -> viewModel.searchButtonClick()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvArtists"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen120"
+            app:layout_constraintTop_toBottomOf="@+id/searchContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/layout_artist_item"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
