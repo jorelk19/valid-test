@@ -20,6 +20,6 @@ class MainViewModel : BaseViewModel() {
     fun showCountryFragmentClick() {
         val countryFragment = CountryFragment()
         countryFragment.arguments = Bundle().apply { putString(CountryFragment.CURRENT_COUNTRIES, currentCountries.value?.json()) }
-        ViewManager.getInstance.attachFragment(countryFragment, R.id.main_container_layout, addNewTransaction = false)
+        ViewManager.getInstance.attachFragment(countryFragment, R.id.main_container_layout, addNewTransaction = false, addToBackStack = false)
     }
 }

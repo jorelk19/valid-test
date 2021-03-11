@@ -40,7 +40,7 @@ class CountryAdapter(private val context: Context, arrayList: ArrayList<Country>
     private fun setListeners(dataBinding: LayoutCountryItemBinding, model: Country) {
         dataBinding.siteContainer.setOnClickListener {
             settingsSharedPreferences.setCountry(model)
-            ViewManager.getInstance.attachFragment(ArtistFragment(), R.id.main_container_layout, addNewTransaction = false)
+            ViewManager.getInstance.attachFragment(ArtistFragment(), R.id.main_container_layout, addNewTransaction = false, addToBackStack = false)
         }
     }
 }
