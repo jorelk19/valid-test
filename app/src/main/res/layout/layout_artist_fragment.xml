@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.valid.edson.ui.viewModels.TrackViewModel" />
+            type="com.valid.edson.ui.viewModels.ArtistViewModel" />
     </data>
 
 
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:headerWindowTitle="@string/track_screen_title"
+            app:headerWindowTitle="@string/artist_screen_title"
             app:headerBackVisibility="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -30,6 +30,7 @@
             android:id="@+id/searchContainer"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen60"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headerControl">
@@ -65,12 +66,13 @@
             android:id="@+id/rvArtists"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen120"
+            android:layout_marginTop="@dimen/dimen60"
             app:layout_constraintTop_toBottomOf="@+id/searchContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/layout_artist_item"
+            android:layout_marginBottom="@dimen/dimen60"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

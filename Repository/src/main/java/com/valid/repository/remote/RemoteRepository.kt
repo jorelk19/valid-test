@@ -10,7 +10,7 @@ import com.valid.repository.BuildConfig
  * @since 1.0.0
  * */
 class RemoteRepository(private val radioApi: RadioApi) {
-    suspend fun getTracks(countryName : String): RadioResponse {
+    suspend fun getArtists(countryName : String): RadioResponse {
         return radioApi.getGeoTracks(
             BuildConfig.METHOD,
             countryName

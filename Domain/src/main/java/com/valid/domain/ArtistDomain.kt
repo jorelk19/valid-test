@@ -1,7 +1,7 @@
 package com.valid.domain
 
 import com.valid.businessmodels.business.Country
-import com.valid.businessmodels.result.ITrackResult
+import com.valid.businessmodels.result.IArtistResult
 import com.valid.domain.base.DomainManager
 import com.valid.repository.remote.RemoteRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,18 +11,18 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-class TrackDomain(private val repository: RemoteRepository) : DomainManager<ITrackResult>() {
-    private lateinit var currentTrackResult : ITrackResult
-    override fun domainResult(trackResult: ITrackResult) {
-        currentTrackResult = trackResult
+class ArtistDomain(private val repository: RemoteRepository) : DomainManager<IArtistResult>() {
+    private lateinit var currentArtistResult : IArtistResult
+    override fun domainResult(artistResult: IArtistResult) {
+        currentArtistResult = artistResult
     }
 
-    fun searchTrack(trackSearched : String, country : Country){
+    fun searchArtist(country : Country){
         launch (Dispatchers.Main){
             try {
                 errorManager.onShowLoader()
-                val response = withContext(Dispatchers.IO){ repository.getTracks(country.countryName.toLowerCase()) }
-                currentTrackResult.setTrackResult(response.topArtists)
+                val response = withContext(Dispatchers.IO){ repository.getArtists(country.countryName.toLowerCase()) }
+                currentArtistResult.setArtistResult(response.topArtists)
                 errorManager.onHideLoader()
             } catch (exception: HttpException) {
                 errorManager.onServiceErrorHttpException(exception.message, exception)

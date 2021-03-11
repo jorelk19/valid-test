@@ -1,11 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.valid.edson.ui.viewModels.ArtistDetailViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.valid.edson.ui.views.widgets.HeaderControl
+            android:id="@+id/headerControl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerBackVisibility="true"
+            app:headerWindowTitle="@string/artist_detail_screen_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tvArtistNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:text="@string/artist_name"
+            android:textColor="@color/fontDarkGray"
+            android:textSize="@dimen/textSize15"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerControl" />
+
+        <TextView
+            android:id="@+id/tvArtistName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:text="@{viewModel.name}"
+            android:textColor="@color/fontDarkGray"
+            android:textSize="@dimen/textSize15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvArtistNameTitle" />
+
+        <TextView
+            android:id="@+id/tvListenersTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:text="@string/artist_Listeners"
+            android:textColor="@color/fontDarkGray"
+            android:textSize="@dimen/textSize15"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvArtistName" />
+
+        <TextView
+            android:id="@+id/tvListeners"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:text="@{viewModel.listeners}"
+            android:textColor="@color/fontDarkGray"
+            android:textSize="@dimen/textSize15"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvListenersTitle" />
+
+        <TextView
+            android:id="@+id/tvUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:layout_marginEnd="@dimen/dimen5"
+            android:layout_marginBottom="@dimen/dimen20"
+            android:onClick="@{() -> viewModel.linkArtistSite()}"
+            android:text="@{viewModel.url}"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/textSize15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvListeners" />
+
+        <TextView
+            android:id="@+id/tvStreamAbleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:text="@string/artist_detail_streamable"
+            android:textColor="@color/fontDarkGray"
+            android:textSize="@dimen/textSize15"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUrl" />
+
+        <TextView
+            android:id="@+id/tvStreamAble"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen20"
+            android:layout_marginTop="@dimen/dimen10"
+            android:layout_marginEnd="@dimen/dimen5"
+            android:layout_marginBottom="@dimen/dimen20"
+            android:text='@{viewModel.streamAble == "1" ? "Si" : "No"}'
+            android:textAlignment="textStart"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/textSize15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStreamAbleTitle" />
+
+        <ImageView
+            android:id="@+id/artistImage"
+            android:layout_width="@dimen/dimen100"
+            android:layout_height="@dimen/dimen100"
+            android:layout_marginTop="@dimen/dimen20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStreamAble" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

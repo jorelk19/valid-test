@@ -14,8 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Valid" >
-
-        <activity android:name="com.valid.edson.ui.views.activities.splashScreen.SplashScreenActivity" >
+        <activity
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Valid.NoActionBar" >
+        </activity>
+        <activity android:name=".ui.views.activities.splashScreen.SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,20 +27,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.valid.edson.ui.views.activities.MainActivity"
+            android:name=".ui.views.activities.MainActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.Valid"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name="com.valid.edson.ui.views.activities.SignInActivity"
+            android:name=".ui.views.activities.artist.ArtistDetailActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.Valid"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name="com.valid.edson.ui.views.activities.NotificationActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/Translucent"
             android:windowSoftInputMode="adjustResize" />
     </application>
 

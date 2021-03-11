@@ -19,10 +19,10 @@ class FragmentTabBarManager {
     }
 
     private val countryFragment: CountryFragment = CountryFragment()
-    private val trackFragment: TrackFragment = TrackFragment()
+    private val artistFragment: ArtistFragment = ArtistFragment()
     private var activeFragment: Fragment = countryFragment
     fun getCountryFragment(): CountryFragment = countryFragment
-    fun getTrackFragment(): TrackFragment = trackFragment
+    fun getTrackFragment(): ArtistFragment = artistFragment
 
     init {
         initControls()
@@ -30,7 +30,7 @@ class FragmentTabBarManager {
 
     private fun initControls() {
         ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().add(R.id.main_container_layout, countryFragment).commit()
-        ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().add(R.id.main_container_layout, trackFragment).hide(trackFragment).commit()
+        ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().add(R.id.main_container_layout, artistFragment).hide(artistFragment).commit()
     }
 
     fun <T> setCurrentTab(classTo: Class<T>, bundle: Bundle? = null) {
@@ -40,10 +40,10 @@ class FragmentTabBarManager {
                 ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().hide(activeFragment).show(countryFragment).commit()
                 activeFragment = countryFragment
             }
-            TrackFragment::class.simpleName -> {
-                trackFragment.arguments = bundle
-                ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().hide(activeFragment).show(trackFragment).commit()
-                activeFragment = trackFragment
+            ArtistFragment::class.simpleName -> {
+                artistFragment.arguments = bundle
+                ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().hide(activeFragment).show(artistFragment).commit()
+                activeFragment = artistFragment
             }
         }
     }

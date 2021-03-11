@@ -1,7 +1,7 @@
 package com.valid.di
 
 import com.valid.domain.SplashScreenDomain
-import com.valid.domain.TrackDomain
+import com.valid.domain.ArtistDomain
 
 /**
  * Class used to manage the components from application
@@ -10,5 +10,5 @@ import com.valid.domain.TrackDomain
  * */
 data class AppComponent(
     val splashScreenDomain: SplashScreenDomain,
-    val trackDomain: TrackDomain
+    val artistDomain: ArtistDomain
 )

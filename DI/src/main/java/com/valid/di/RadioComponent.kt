@@ -1,7 +1,7 @@
 package com.valid.di
 
 import com.valid.domain.SplashScreenDomain
-import com.valid.domain.TrackDomain
+import com.valid.domain.ArtistDomain
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -12,9 +12,9 @@ import org.koin.core.inject
  * */
 class RadioComponent : KoinComponent {
     private val splashScreenDomain : SplashScreenDomain by inject()
-    private val trackDomain : TrackDomain by inject()
+    private val artistDomain : ArtistDomain by inject()
     val appComponent = AppComponent (
         splashScreenDomain = splashScreenDomain,
-        trackDomain = trackDomain
+        artistDomain = artistDomain
     )
 }

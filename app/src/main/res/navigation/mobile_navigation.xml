@@ -8,14 +8,10 @@
         android:label="CountryFragment" >
         <action
             android:id="@+id/action_nav_main_to_nav_dashboard"
-            app:destination="@id/trackFragment" />
+            app:destination="@id/artistFragment" />
     </fragment>
     <fragment
-        android:id="@+id/trackFragment"
-        android:name="com.valid.edson.ui.views.fragments.TrackFragment"
+        android:id="@+id/artistFragment"
+        android:name="com.valid.edson.ui.views.fragments.ArtistFragment"
         android:label="TrackFragment" />
-    <fragment
-        android:id="@+id/myPaymentsFragment2"
-        android:name="com.valid.edson.ui.views.fragments.MyPaymentsFragment"
-        android:label="MyPaymentsFragment" />
 </navigation>

@@ -6,12 +6,11 @@ import com.valid.businessmodels.business.Country
 import com.valid.edson.R
 import com.valid.edson.databinding.LayoutCountryItemBinding
 import com.valid.edson.ui.views.fragments.FragmentTabBarManager
-import com.valid.edson.ui.views.fragments.TrackFragment
+import com.valid.edson.ui.views.fragments.ArtistFragment
 import com.valid.edson.utils.CountryFlagMapper
 import com.valid.edson.utils.loadLocalImage
 import com.valid.edson.utils.settingsSharedPreferences
 import com.valid.utils.GenericAdapter
-import com.valid.utils.ViewManager
 
 
 /**
@@ -40,7 +39,7 @@ class CountryAdapter(private val context: Context, arrayList: ArrayList<Country>
     private fun setListeners(dataBinding: LayoutCountryItemBinding, model: Country) {
         dataBinding.siteContainer.setOnClickListener {
             settingsSharedPreferences.setCountry(model)
-            FragmentTabBarManager.instance.setCurrentTab(TrackFragment::class.java)
+            FragmentTabBarManager.instance.setCurrentTab(ArtistFragment::class.java)
         }
     }
 }

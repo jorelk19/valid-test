@@ -1,7 +1,7 @@
 package com.valid.di
 
 import com.valid.domain.SplashScreenDomain
-import com.valid.domain.TrackDomain
+import com.valid.domain.ArtistDomain
 import com.valid.repository.implementation.DefaultCountryLocalRepository
 import com.valid.repository.remote.RemoteRepository
 import org.koin.dsl.module
@@ -17,6 +17,6 @@ val domainModule = module {
 }
 
 private fun provideSplashScreenDomain(defaultCountryLocalRepository: DefaultCountryLocalRepository) = SplashScreenDomain(defaultCountryLocalRepository)
-private fun provideTrackDomain(remoteRepository: RemoteRepository) = TrackDomain(remoteRepository)
+private fun provideTrackDomain(remoteRepository: RemoteRepository) = ArtistDomain(remoteRepository)
 
 

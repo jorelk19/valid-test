@@ -3,12 +3,12 @@ package com.valid.edson.ui.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.valid.businessmodels.business.TopArtists
-import com.valid.businessmodels.result.ITrackResult
-import com.valid.domain.TrackDomain
+import com.valid.businessmodels.result.IArtistResult
+import com.valid.domain.ArtistDomain
 import com.valid.edson.ui.viewModels.base.BaseViewModel
 import com.valid.edson.utils.settingsSharedPreferences
 
-class TrackViewModel(private val trackDomain: TrackDomain) : BaseViewModel() {
+class ArtistViewModel(private val artistDomain: ArtistDomain) : BaseViewModel() {
     val searchedText = MutableLiveData<String>()
     val currentTopArtists = MutableLiveData<TopArtists>()
 
@@ -16,21 +16,22 @@ class TrackViewModel(private val trackDomain: TrackDomain) : BaseViewModel() {
         return currentTopArtists
     }
 
-    private val trackResult = object : ITrackResult {
-        override fun setTrackResult(topArtists: TopArtists) {
+    private val trackResult = object : IArtistResult {
+        override fun setArtistResult(topArtists: TopArtists) {
             currentTopArtists.value = topArtists
         }
     }
 
     fun initControls() {
-        trackDomain.errorManager = this
-        trackDomain.domainResult(trackResult)
+        artistDomain.errorManager = this
+        artistDomain.domainResult(trackResult)
+        artistDomain.searchArtist(settingsSharedPreferences.getCountry())
     }
 
     fun searchButtonClick(){
         searchedText.value?.let {
             if(it.length > 3){
-                trackDomain.searchTrack(it, settingsSharedPreferences.getCountry())
+                artistDomain.searchArtist(settingsSharedPreferences.getCountry())
             }
         }
     }

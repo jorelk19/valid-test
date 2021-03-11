@@ -3,6 +3,7 @@ package com.valid.edson.ui.views.activities.base
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.valid.edson.ui.views.activities.MainActivity
 import com.valid.utils.ViewManager
 
 /**
@@ -27,7 +28,9 @@ open class BaseFragmentActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        ViewManager.getInstance.onBack()
+        if (ViewManager.getInstance.getCurrentActivity()::class.java != MainActivity::class.java) {
+            ViewManager.getInstance.onBack()
+        }
     }
 
 }

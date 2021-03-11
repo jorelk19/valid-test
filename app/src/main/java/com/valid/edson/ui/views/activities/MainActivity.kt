@@ -9,7 +9,7 @@ import com.valid.edson.databinding.ActivityMainBinding
 import com.valid.edson.ui.views.activities.base.BaseFragmentActivity
 import com.valid.edson.ui.views.fragments.CountryFragment
 import com.valid.edson.ui.views.fragments.FragmentTabBarManager
-import com.valid.edson.ui.views.fragments.TrackFragment
+import com.valid.edson.ui.views.fragments.ArtistFragment
 import com.valid.utils.fromJson
 import com.valid.utils.json
 
@@ -37,7 +37,7 @@ class MainActivity : BaseFragmentActivity() {
                     !it.isChecked
                 }
                 R.id.action_track -> {
-                    FragmentTabBarManager.instance.setCurrentTab(TrackFragment::class.java)
+                    FragmentTabBarManager.instance.setCurrentTab(ArtistFragment::class.java)
                     setItemCheckedAtPosition(1)
                     !it.isChecked
                 }

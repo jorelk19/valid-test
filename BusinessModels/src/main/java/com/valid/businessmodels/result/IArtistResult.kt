@@ -2,6 +2,6 @@ package com.valid.businessmodels.result
 
 import com.valid.businessmodels.business.TopArtists
 
-interface ITrackResult {
-    fun setTrackResult(topArtists: TopArtists)
+interface IArtistResult {
+    fun setArtistResult(topArtists: TopArtists)
 }

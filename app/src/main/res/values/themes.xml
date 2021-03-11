@@ -12,7 +12,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.EvertecTest.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Valid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.EvertecTest.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Valid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

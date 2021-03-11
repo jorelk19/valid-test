@@ -29,7 +29,15 @@
     <string name='cards_full_name'>Nombre y apellido</string>
     <string name="tabBar_countries">País</string>
     <string name="tabBar_track">Pistas</string>
-    <string name="track_screen_title">Busqueda de canciones</string>
+    <string name="artist_screen_title">Artistas</string>
     <string name="artist_name">Nombre del artista</string>
     <string name="artist_Listeners">Oyentes</string>
+    <string name="artist_detail_streamable">Transmitible</string>
+    <string name="artist_detail_screen_title">Detalle del artista</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

@@ -10,29 +10,29 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.valid.edson.R
-import com.valid.edson.databinding.LayoutTrackFragmentBinding
-import com.valid.edson.ui.viewModels.TrackViewModel
+import com.valid.edson.databinding.LayoutArtistFragmentBinding
+import com.valid.edson.ui.viewModels.ArtistViewModel
 import com.valid.edson.ui.views.fragments.adapters.ArtistAdapter
 import com.valid.edson.utils.getViewModelFactory
 import com.valid.utils.ViewManager
 
-class TrackFragment : Fragment() {
+class ArtistFragment : Fragment() {
 
-    private lateinit var trackFragmentBinding: LayoutTrackFragmentBinding
+    private lateinit var artistFragmentBinding: LayoutArtistFragmentBinding
     private lateinit var artistAdapter: ArtistAdapter
-    val viewModel by viewModels<TrackViewModel> { getViewModelFactory() }
+    val viewModel by viewModels<ArtistViewModel> { getViewModelFactory() }
 
     /**
      * Method to instantiate the view
      * */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        trackFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.layout_track_fragment, container, false)
-        trackFragmentBinding.lifecycleOwner = ViewManager.getInstance.getCurrentActivity()
-        trackFragmentBinding.viewModel = viewModel
+        artistFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.layout_artist_fragment, container, false)
+        artistFragmentBinding.lifecycleOwner = ViewManager.getInstance.getCurrentActivity()
+        artistFragmentBinding.viewModel = viewModel
         viewModel.initControls()
         addSubscriptions()
         setAdapters()
-        return trackFragmentBinding.root
+        return artistFragmentBinding.root
     }
 
     private fun addSubscriptions() {
@@ -43,7 +43,7 @@ class TrackFragment : Fragment() {
 
     private fun setAdapters() {
         artistAdapter = ArtistAdapter(ViewManager.getInstance.getCurrentActivity(), arrayListOf())
-        trackFragmentBinding.rvArtists.layoutManager = LinearLayoutManager(ViewManager.getInstance.getCurrentActivity())
-        trackFragmentBinding.rvArtists.adapter = artistAdapter
+        artistFragmentBinding.rvArtists.layoutManager = LinearLayoutManager(ViewManager.getInstance.getCurrentActivity())
+        artistFragmentBinding.rvArtists.adapter = artistAdapter
     }
 }

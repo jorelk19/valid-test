@@ -131,6 +131,8 @@ class ViewManager : INavigation {
     override fun onBack() {
         if (currentActivity.supportFragmentManager.backStackEntryCount > 1) {
             currentActivity.supportFragmentManager.popBackStack()
+        } else {
+            currentActivity.finish()
         }
     }
 
