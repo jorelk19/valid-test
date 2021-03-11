@@ -80,4 +80,8 @@ class CountryFragment : Fragment() {
         const val CURRENT_COUNTRIES = "CURRENT_COUNTRIES"
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        siteFragmentBinding.rvCountry.adapter = null
+    }
 }

@@ -65,14 +65,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvArtists"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen60"
+            android:layout_height="@dimen/dimen0"
             app:layout_constraintTop_toBottomOf="@+id/searchContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/layout_artist_item"
-            android:layout_marginBottom="@dimen/dimen60"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

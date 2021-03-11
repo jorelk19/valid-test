@@ -18,22 +18,30 @@ class FragmentTabBarManager {
             }
     }
 
-    private val countryFragment: CountryFragment = CountryFragment()
-    private val artistFragment: ArtistFragment = ArtistFragment()
-    private var activeFragment: Fragment = countryFragment
+    private lateinit var countryFragment: CountryFragment
+    private lateinit var artistFragment: ArtistFragment
+    private lateinit var activeFragment: Fragment
     fun getCountryFragment(): CountryFragment = countryFragment
     fun getTrackFragment(): ArtistFragment = artistFragment
 
     fun <T> setCurrentTab(classTo: Class<T>, bundle: Bundle? = null) {
         when (classTo.simpleName) {
             CountryFragment::class.simpleName -> {
+                countryFragment = CountryFragment()
                 countryFragment.arguments = bundle
                 ViewManager.getInstance.attachFragment(countryFragment, R.id.main_container_layout, addNewTransaction = false)
+                if(::activeFragment.isInitialized){
+                    activeFragment.onDestroy()
+                }
                 activeFragment = countryFragment
             }
             ArtistFragment::class.simpleName -> {
+                artistFragment = ArtistFragment()
                 artistFragment.arguments = bundle
                 ViewManager.getInstance.attachFragment(artistFragment, R.id.main_container_layout, addNewTransaction = false)
+                if(::activeFragment.isInitialized){
+                    activeFragment.onDestroy()
+                }
                 activeFragment = artistFragment
             }
         }

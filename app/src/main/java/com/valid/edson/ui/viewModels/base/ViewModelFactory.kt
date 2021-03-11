@@ -21,6 +21,7 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         {
             when {
                 isAssignableFrom(SplashScreenViewModel::class.java) -> SplashScreenViewModel(KoinManager.getAppComponent().splashScreenDomain)
+                isAssignableFrom(MainViewModel::class.java) -> MainViewModel()
                 isAssignableFrom(CountryViewModel::class.java) -> CountryViewModel()
                 isAssignableFrom(ArtistViewModel::class.java) -> ArtistViewModel(KoinManager.getAppComponent().artistDomain)
                 isAssignableFrom(ArtistDetailViewModel::class.java) -> ArtistDetailViewModel()

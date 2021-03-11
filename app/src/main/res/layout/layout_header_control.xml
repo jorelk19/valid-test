@@ -3,25 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="headerViewModel"
             type="com.valid.edson.ui.viewModels.HeaderViewModel" />
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/background_header_control"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen50">
+        android:layout_height="@dimen/dimen50"
+        android:background="@drawable/background_header_control"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ivHeaderBack"
             android:layout_width="@dimen/dimen40"
             android:layout_height="@dimen/dimen40"
             android:layout_margin="@dimen/dimen5"
-            android:visibility="@{headerViewModel.isBackVisibility ? View.VISIBLE : View.GONE}"
-            android:src="@drawable/arrow_back"
             android:onClick="@{() -> headerViewModel.onBackHeader()}"
+            android:src="@drawable/arrow_back"
+            android:visibility="@{headerViewModel.isBackVisibility ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,10 +33,10 @@
             android:id="@+id/tvHeaderScreenTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{headerViewModel.headerTitle}"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/textSize20"
             android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            android:text="@{headerViewModel.headerTitle}"
             app:layout_constraintBottom_toBottomOf="@+id/ivHeaderBack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivHeaderBack"

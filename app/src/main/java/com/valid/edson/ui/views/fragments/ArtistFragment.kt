@@ -34,6 +34,7 @@ class ArtistFragment : Fragment() {
         artistFragmentBinding.lifecycleOwner = this
         addSubscriptions()
         setAdapters()
+        viewModel.initControls()
         return artistFragmentBinding.root
     }
 
@@ -52,5 +53,10 @@ class ArtistFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.initControls()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        artistFragmentBinding.rvArtists.adapter = null
     }
 }
