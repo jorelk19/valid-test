@@ -24,25 +24,16 @@ class FragmentTabBarManager {
     fun getCountryFragment(): CountryFragment = countryFragment
     fun getTrackFragment(): ArtistFragment = artistFragment
 
-    init {
-        initControls()
-    }
-
-    private fun initControls() {
-        ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().add(R.id.main_container_layout, countryFragment).commit()
-        ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().add(R.id.main_container_layout, artistFragment).hide(artistFragment).commit()
-    }
-
     fun <T> setCurrentTab(classTo: Class<T>, bundle: Bundle? = null) {
         when (classTo.simpleName) {
             CountryFragment::class.simpleName -> {
                 countryFragment.arguments = bundle
-                ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().hide(activeFragment).show(countryFragment).commit()
+                ViewManager.getInstance.attachFragment(countryFragment, R.id.main_container_layout, addNewTransaction = false)
                 activeFragment = countryFragment
             }
             ArtistFragment::class.simpleName -> {
                 artistFragment.arguments = bundle
-                ViewManager.getInstance.getCurrentActivity().supportFragmentManager.beginTransaction().hide(activeFragment).show(artistFragment).commit()
+                ViewManager.getInstance.attachFragment(artistFragment, R.id.main_container_layout, addNewTransaction = false)
                 activeFragment = artistFragment
             }
         }

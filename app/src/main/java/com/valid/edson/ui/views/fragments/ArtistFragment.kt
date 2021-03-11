@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.valid.edson.R
 import com.valid.edson.databinding.LayoutArtistFragmentBinding
@@ -29,7 +31,7 @@ class ArtistFragment : Fragment() {
         artistFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.layout_artist_fragment, container, false)
         artistFragmentBinding.lifecycleOwner = ViewManager.getInstance.getCurrentActivity()
         artistFragmentBinding.viewModel = viewModel
-        viewModel.initControls()
+        artistFragmentBinding.lifecycleOwner = this
         addSubscriptions()
         setAdapters()
         return artistFragmentBinding.root
@@ -45,5 +47,10 @@ class ArtistFragment : Fragment() {
         artistAdapter = ArtistAdapter(ViewManager.getInstance.getCurrentActivity(), arrayListOf())
         artistFragmentBinding.rvArtists.layoutManager = LinearLayoutManager(ViewManager.getInstance.getCurrentActivity())
         artistFragmentBinding.rvArtists.adapter = artistAdapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.initControls()
     }
 }
