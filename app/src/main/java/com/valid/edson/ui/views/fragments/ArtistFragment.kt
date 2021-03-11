@@ -34,7 +34,6 @@ class ArtistFragment : Fragment() {
         artistFragmentBinding.lifecycleOwner = this
         addSubscriptions()
         setAdapters()
-        viewModel.initControls()
         return artistFragmentBinding.root
     }
 
